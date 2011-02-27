@@ -9,7 +9,8 @@
 		"css": "text/css",
 		"jpg": "image/jpeg",
 		"png": "image/png",
-		"gif": "image/gif"
+		"gif": "image/gif",
+		"js": "text/javascript"
 	};
 	
 }).call(this)

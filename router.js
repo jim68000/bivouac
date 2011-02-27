@@ -4,7 +4,7 @@
     fs = require('fs'),
     routes = [],
     remembered = [];
-
+	exports.is_static = false;
     exports.VERSION = '0.1';
     exports.add_route = function(re, controller) {
         routes.push({

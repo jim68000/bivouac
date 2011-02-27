@@ -4,6 +4,7 @@ var url = require('url');
 var biv = require('./bivutils.js');
 var router = require('./router.js');
 var config = require('./config.js');
+var Response = require('./types/response.js').Response; // Maybe types should be just one module?
 
 http.createServer(function (req, res) {
 	router.add_route(/.*mybeer.*/, "beer.js");
@@ -18,7 +19,7 @@ http.createServer(function (req, res) {
 
 	if (build_res.is_static) {
 		var tres = build_res.handle(req.url);
-		res.writeHead(200, {'Content-Type': tres.mime});
+		res.writeHead(tres.code, {'Content-Type': tres.mime});
 		res.write(tres.payload);
 		res.end();
 	} else {

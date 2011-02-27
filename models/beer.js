@@ -1,0 +1,4 @@
+{
+	"label":"fancy",
+	"type":"lager"
+}
