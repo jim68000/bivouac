@@ -8,8 +8,9 @@ var config = require('./config.js');
 http.createServer(function (req, res) {
 	router.add_route(/.*mybeer.*/, "beer.js");
 	router.add_route(/.*broken.*/, "broken.js");
+	router.add_route(/store.*/, "static.js");
 	router.add_route(/.*favicon.ico.*/, "static.js");
-	router.add_route(/index.html/, "static.js");
+	router.add_route(/index.html/, "static.js"); //TODO handle static mapping in a way that isn't utterly sad
 	router.add_route(/\/.*/, "index.js");	
 	
 	

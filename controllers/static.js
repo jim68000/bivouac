@@ -14,10 +14,12 @@
             var stat = fs.statSync(config.static_location + url).isFile();
             if (stat) {
                 var outfile = fs.readFileSync(config.static_location + url);
+				var filex = url.substring(url.lastIndexOf(".")+1);
+				
 				 return {
-					mime: 'image/vnd.microsoft.icon',
-					payload: outfile
-				} 
+						mime: config.mimes[filex],
+						payload: outfile
+					} 
 				} else {
 					return {
 						mime: 'text/plain',

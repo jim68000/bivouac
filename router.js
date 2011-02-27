@@ -16,9 +16,10 @@
     exports.resolve = function(url) {
         var outcon = null;
 
-        if (remembered[url] !== undefined) {
-            console.log("found in mem");
-            outcon = remembered[url];
+        if (remembered[url] !== undefined && config.enable_mem_cache) {
+				console.log("found in mem");
+	            outcon = remembered[url];
+
         } else {
 
             for (i in routes) {
