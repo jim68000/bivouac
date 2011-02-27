@@ -10,7 +10,8 @@
 		"jpg": "image/jpeg",
 		"png": "image/png",
 		"gif": "image/gif",
-		"js": "text/javascript"
+		"js": "text/javascript",
+		"pdf": "application/pdf"
 	};
 	
 }).call(this)
