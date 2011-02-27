@@ -26,6 +26,9 @@
                 console.log("testing" + routes[i].controller);
                 if (url.match(routes[i].re)) {
                     console.log(routes[i]);
+					if (typeof routes[i].controller === 'object') {
+						return routes[i].controller;
+					}
 
 
                     try {
