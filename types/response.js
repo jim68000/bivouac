@@ -10,7 +10,7 @@
 		}
 		
 		var rcode = code || "200";
-		var rmime = mime || "application/octet-stream"; //provide some defaults
+		var rmime = mime || "text/html"; //provide some defaults
 		
 		return {
 			"code": rcode,

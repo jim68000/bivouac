@@ -4,7 +4,7 @@
     fs = require('fs'),
     routes = [],
     remembered = [];
-	exports.is_static = false;
+    exports.is_static = false;
     exports.VERSION = '0.1';
     exports.add_route = function(re, controller) {
         routes.push({
@@ -17,19 +17,15 @@
         var outcon = null;
 
         if (remembered[url] !== undefined && config.enable_mem_cache) {
-				console.log("found in mem");
-	            outcon = remembered[url];
+            outcon = remembered[url];
 
         } else {
 
             for (i in routes) {
-                console.log("testing" + routes[i].controller);
                 if (url.match(routes[i].re)) {
-                    console.log(routes[i]);
-					if (typeof routes[i].controller === 'object') {
-						return routes[i].controller;
-					}
-
+                    if (typeof routes[i].controller === 'object') {
+                        return routes[i].controller;
+                    }
 
                     try {
                         var stat = fs.statSync(config.controller_location + routes[i].controller).isFile();

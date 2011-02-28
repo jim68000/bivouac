@@ -9,6 +9,18 @@
 		return reqo;
 	}
 	
-
+	exports.log = function(req, res, tres) {
+		var d = new Date();
+		var date_string = d.toUTCString();
+		console.log(date_string + " " + req.client.remoteAddress + " " + req.url + " " + tres.code);
+	}
+	
+	exports.bug = function(msg) {
+		if (config.deployment === 'development') {
+			console.log(msg);
+		}
+	}
+	
+	
 	
 }).call(this)
