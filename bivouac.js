@@ -3,7 +3,7 @@ var biv = require('./bivutils.js');
 var router = require('./router.js');
 var config = require('./config.js');
 var Response = require('./types/response.js').Response; // Maybe types should be just one module?
-var static_handler = require('./static.js')
+var static_handler = require('./static.js');
 
 
 //set the app up
