@@ -38,7 +38,7 @@
                             render: function() {
                                 return "broken somewhere " + e.message;
                             }
-                        }
+                        };
                     }
                     break;
                 }
@@ -49,4 +49,4 @@
         return outcon;
     };
 
-}).call(this)
+}).call(this);

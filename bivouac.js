@@ -4,24 +4,19 @@ var router = require('./router.js');
 var config = require('./config.js');
 var Response = require('./types/response.js').Response; // Maybe types should be just one module?
 var static_handler = require('./static.js');
+var ws = require('./ws.js');
 
 
 //set the app up
-router.add_route(/.*mybeer.*/, "beer.js");
-router.add_route(/.*broken.*/, "broken.js");
-router.add_route(/beer.html/, "beer.js");
-router.add_route(/store.*/, static_handler);
+//TODO move this somewhere else
+router.add_route(/.*json.*/, "guardian.js");
 router.add_route(/.*favicon.ico.*/, static_handler);
 router.add_route(/.*.html/, static_handler); 
-router.add_route(/\/.*/, "index.js");
+router.add_route(/\/.*/, static_handler);
 
 
 http.createServer(function (req, res) {	
 	var build_res = router.resolve(req.url);
-	// TODO can the below be done async?
-	var tres = build_res.handle(req.url);
-	res.writeHead(tres.code, {'Content-Type': tres.mime});
-	res.write(tres.payload);
-	res.end();
-	biv.log(req, res, tres);
+	build_res.handle(req.url, res, ws.writer);
+	biv.log(req, res);
 }).listen(8124);

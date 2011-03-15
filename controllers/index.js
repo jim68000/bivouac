@@ -8,6 +8,6 @@
 	
 	exports.handle = function(url) {
 		return Response(html.doc("Hello", "hello " + url));
-	}
+	};
 	
-}).call(this)
+}).call(this);

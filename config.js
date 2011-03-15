@@ -12,7 +12,15 @@
 		"png": "image/png",
 		"gif": "image/gif",
 		"js": "text/javascript",
+		"json": "text/plain", 
 		"pdf": "application/pdf"
 	};
+	exports.bloom = {
+		"start_delimiter": "((",
+		"end_delimiter": "))",
+		"vm_start_delimiter": "{",
+		"vm_end_delimiter": "}",
+		"inplace_variable_indicator": "="   
+	};
 	
-}).call(this)
+}).call(this);

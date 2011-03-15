@@ -7,20 +7,20 @@
 			reqo[tp[0]] = tp[1];
 		});
 		return reqo;
-	}
+	};
 	
-	exports.log = function(req, res, tres) {
+	exports.log = function(req, res) {
 		var d = new Date();
 		var date_string = d.toUTCString();
-		console.log(date_string + " " + req.client.remoteAddress + " " + req.url + " " + tres.code);
-	}
+		console.log(date_string + " " + req.client.remoteAddress + " " + req.url);
+	};
 	
 	exports.bug = function(msg) {
 		if (config.deployment === 'development') {
 			console.log(msg);
 		}
-	}
+	};
 	
 	
 	
-}).call(this)
+}).call(this);

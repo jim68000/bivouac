@@ -10,6 +10,6 @@
 	
 	exports.handle = function(url) {
 		return Response(html.doc("Beer", "I will drink the place dry"));
-	}
+	};
 	
-}).call(this)
+}).call(this);
