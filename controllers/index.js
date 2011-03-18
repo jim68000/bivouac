@@ -7,7 +7,7 @@
 	};
 	
 	exports.handle = function(url) {
-		return Response(html.doc("Hello", "hello " + url));
+		writer(req, response, Response("DATABASE ERROR " + err, 500));
 	};
 	
 }).call(this);
