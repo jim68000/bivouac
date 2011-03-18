@@ -1,5 +1,10 @@
 (function(){
+	
+	// TODO split out logging
+	
 	exports.VERSION = '0.1';
+	
+
 	exports.queries = function(query_string) {
 		var pairs = query_string.split("&"), reqo = [];
 		pairs.forEach(function(p) {
@@ -9,18 +14,7 @@
 		return reqo;
 	};
 	
-	exports.log = function(req, res) {
-		var d = new Date();
-		var date_string = d.toUTCString();
-		console.log(date_string + " " + req.client.remoteAddress + " " + req.url);
-	};
-	
-	exports.bug = function(msg) {
-		if (config.deployment === 'development') {
-			console.log(msg);
-		}
-	};
-	
+
 	
 	
 }).call(this);

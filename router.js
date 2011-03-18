@@ -1,12 +1,12 @@
 (function() {
 
-    var config = require('./config.js'),
+    var config = require('./config/config.js'),
     fs = require('fs'),
+	log = require('./logger.js'),
     routes = [],
     remembered = [];
-    exports.is_static = false;
     exports.VERSION = '0.1';
-    exports.add_route = function(re, controller) {
+    exports.add_route = function(re, controller, override) {
         routes.push({
             "re": re,
             "controller": controller
@@ -16,9 +16,9 @@
     exports.resolve = function(url) {
         var outcon = null;
 
-        if (remembered[url] !== undefined && config.enable_mem_cache) {
+        if (remembered[url] !== undefined && config.enable_route_mem_cache) {
             outcon = remembered[url];
-
+			log.applog("ROUTER", log.DEBUG, "found " + url + " in memcache", module);
         } else {
 
             for (i in routes) {
@@ -28,6 +28,8 @@
                     }
 
                     try {
+	
+						// TODO - optimise
                         var stat = fs.statSync(config.controller_location + routes[i].controller).isFile();
                         if (stat) {
                             outcon = require(config.controller_location + routes[i].controller);
